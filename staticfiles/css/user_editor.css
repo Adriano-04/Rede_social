@@ -1,0 +1,53 @@
+h4 {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+p {
+    margin: 0;
+}
+
+button {
+    background-color: rgb(40, 129, 230);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 6px;
+    border-radius: 6px;
+    margin-top: 12px;
+}
+
+.back_button {
+    color: #fff;
+    text-decoration: none;
+}
+
+h5 {
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+li {
+    list-style: none;
+}
+
+.blocked_user {
+    background-color: rgb(216, 216, 216);
+    padding: 6px;
+    display: flex;
+    border-radius: 6px;
+    width: 460px;
+    margin-top: 12px;
+}
+
+.unlocked_user {
+    padding: 2px;
+    font-size: 14px;
+    margin-left: 12px;
+    margin-top: 0;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 8px;
+}
