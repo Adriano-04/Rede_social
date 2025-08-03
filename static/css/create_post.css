@@ -1,0 +1,57 @@
+
+.post_container {
+    background-color: rgb(216, 216, 216);
+    max-width: 640px;
+    height: 392px;
+    border-radius: 12px;
+    padding: 8px;
+    margin: 0 auto;
+    margin-top: 84px;
+    position: relative;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+textarea {
+    resize: none;
+    height: 140px;
+    margin-bottom: 12px;
+}
+
+.input_image {
+    max-width: 364px;
+    margin-top: 8px;
+}
+
+.post_button {
+    background-color: rgb(40, 129, 230);
+    width: 100%;
+    margin-top: 32px;
+    font-weight: bold;
+    color: #fff;
+    padding: 6px;
+    border-radius: 4px;
+    border: none;
+    display: block;
+}
+
+.post_button:hover {
+    background-color: rgb(36, 111, 197);
+}
+
+label {
+    margin: 0;
+    font-weight: bold;
+}
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}

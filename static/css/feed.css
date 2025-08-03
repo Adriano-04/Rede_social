@@ -1,0 +1,162 @@
+header {
+    position: relative;
+}
+
+.bar {
+    background-color: rgb(40, 129, 230);
+    padding: 2px;
+    color: #fff;
+}
+
+.barItens {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link_button {
+    color: #fff;
+    text-decoration: none;
+}
+
+.logout_button {
+    background: none;
+    color: #fff;
+    border: none;
+}
+
+.background_perfil {
+    width: 100%;
+    max-height: 280px;
+    max-width: 920px;
+}
+
+.avatar {
+    border-radius: 60px;
+    margin-right: 24px;
+    position: absolute;
+    background-color: #fff;
+    width: 120px;
+    height: 120px;
+    top: 235px;
+    left: 24px;
+}
+
+.user_infos {
+    display: flex;
+    padding-left: 180px;
+    margin-top: 12px;
+    margin-bottom: 18px;
+    align-items: center;
+}
+
+.post_button {
+    font-weight: bold;
+    background-color: rgb(40, 129, 230);
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    margin-top: 8px;
+    border-radius: 8px;
+    width: 120px;
+    text-align: center;
+    margin-left: 64px;
+}
+
+.post_button:hover {
+    cursor: pointer;
+}
+
+label {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 32px;
+}
+
+.header_post {
+    display: flex;
+}
+
+.user_post_image {
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 20px;
+    background-color: #fff;
+    margin-right: 12px;
+}
+
+.post {
+    background-color: rgb(216, 216, 216);
+    max-width: 768px;
+    padding: 8px;
+    padding-bottom: 12px;
+    border-radius: 8px;
+    margin-bottom: 32px;
+    margin-left: 32px;
+}
+
+.username_post {
+    margin: 0;
+}
+
+.post_date {
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+header {
+    position: relative;
+}
+
+.post_text {
+    background-color: #fff;
+    padding: 8px;
+    min-height: 52px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    margin: 0;
+}
+
+.like_button {
+    font-weight: bold;
+    min-width: 64px;
+    border: 1px solid rgb(40, 129, 230);
+    color: black;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 12px;
+    margin-bottom: 0;
+}
+
+.follow_button {
+    background-color: rgb(40, 129, 230);
+    color: #fff;
+    font-weight: bold;
+    margin-left: 12px;
+    border: none;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.block_button {
+    background-color: red;
+    color: #fff;
+    padding: 2px;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    height: 24px;
+    border-radius: 4px;
+    margin-left: 8px;
+}
+
+.post_image {
+    max-width: 100%;
+    width: 100%;
+    min-height: 240px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}

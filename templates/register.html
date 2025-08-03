@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>Register</title>
+</head>
+<body>
+    <nav class="navbar_style">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <h2>Int</h2>
+            </div>
+            <div>
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Cadastrar-se</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="register_menu">
+        <h3>Cadastre-se</h3>
+        <form id="form-register" method="post">
+            {% csrf_token %}
+            <label class="form-label fw-bold" for="username">Nome do usuário</label>
+            <input id="username" type="text" placeholder="Nome de usuário" class="form-control">
+            <label class="form-label fw-bold" for="useremail">Email</label>
+            <input type="email" class="form-control" id="useremail" placeholder="Email">
+            <label class="form-label fw-bold" for="password">Senha</label>
+            <input type="password" class="form-control" id="password" placeholder="Senha">
+            <button type="submit" class="btn register_button">Cadastrar</button>
+        </form>
+    </div>
+</body>
+<script src="{% static 'js/register.js' %}"></script>
+</html>
