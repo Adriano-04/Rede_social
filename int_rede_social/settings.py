@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-pmk*a$n1_+n2oe15&(n*i)50-4(90p(xo&2gr54^%-yf+atm*#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS", "localhost")]
 
 
 # Application definition
@@ -74,16 +76,23 @@ WSGI_APPLICATION = 'int_rede_social.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Int_db',
-        'USER': 'postgres',
-        'PASSWORD': 'postdb',
-        'HOST': 'localhost',
-        'PORT': '5432',
+if os.environ.get('RENDER'):
+    DATABASES = {
+        'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'Int_db',
+            'USER': 'postgres',
+            'PASSWORD': 'postdb',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Password validation
