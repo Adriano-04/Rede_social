@@ -33,11 +33,11 @@
             </div>
             <div class="user_infos" style="margin-top: 8px;">
                 <div>
-                    <label>Seguindo</label>
+                    <label>Seguindo:</label>
                     <p class="following">{{ following }}</p>
                 </div>
                 <div>
-                    <label>Seguidores</label>
+                    <label>Seguidores:</label>
                     <p class="followers">{{ followers }}</p>
                 </div>
             </div>
@@ -56,9 +56,9 @@
                         {% csrf_token %}
                         <button type="submit" class="follow_button">
                             {% if post.user.id in following_users %}
-                                Seguindo:
+                                Seguindo
                             {% else %}
-                                Seguir:
+                                Seguir
                             {% endif %}
                         </button>
                     </form>

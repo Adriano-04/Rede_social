@@ -50,7 +50,9 @@ def api_register(request):
             user = CustomUser.objects.create_user(name=username, email=email, password=password)
             user.save()
 
-            return JsonResponse({'message': 'Usuário criado com sucesso.'}, status=201)
+            #return JsonResponse({'message': 'Usuário criado com sucesso.'}, status=201)
+            return redirect('login')
+
         except Exception as e:
             return JsonResponse({'error': str(e)}, status=500)
 
