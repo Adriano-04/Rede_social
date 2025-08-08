@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect, get_object_or_404
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 import json
@@ -88,9 +88,32 @@ def api_login(request):
     return JsonResponse({'error' : 'erro de login sem post'})
 
 class ProfileImageForm(forms.ModelForm):
+
+    password = forms.CharField(
+        label='Nova senha',
+        required=False,
+        widget=forms.PasswordInput
+    )
+
+    password_confirm = forms.CharField(
+        label='Confirmar nova senha',
+        required=False,
+        widget=forms.PasswordInput
+    )
+
     class Meta:
         model = CustomUser
-        fields = ['profile_image', 'background_image']
+        fields = ['name','profile_image', 'background_image']
+
+
+def clean(self):
+    cleaned_data = super().clean()
+    password = cleaned_data.get("password")
+    password_confirm = cleaned_data.get("password_confirm")
+
+    if password and password != password_confirm:
+        self.add_error("password_confirm", "As senhas não coincidem.")
+    return cleaned_data
 
 @login_required
 def edit_perfil(request):
@@ -101,6 +124,13 @@ def edit_perfil(request):
 
         if form.is_valid():
             form.save()
+            new_password = form.cleaned_data.get('password')
+            if new_password:
+                user.set_password(new_password)
+
+            if new_password:
+                update_session_auth_hash(request, user)
+
             return redirect('feed')
     else:
         form = ProfileImageForm(instance=user)
