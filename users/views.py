@@ -103,7 +103,7 @@ class ProfileImageForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ['name','profile_image', 'background_image']
+        fields = ['Nome','Imagem perfil', 'Imagem fundo']
 
 
 def clean(self):
@@ -127,6 +127,7 @@ def edit_perfil(request):
             new_password = form.cleaned_data.get('password')
             if new_password:
                 user.set_password(new_password)
+                user.save()
 
             if new_password:
                 update_session_auth_hash(request, user)
