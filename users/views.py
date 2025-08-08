@@ -103,7 +103,7 @@ class ProfileImageForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ['Nome','Imagem perfil', 'Imagem fundo']
+        fields = ['name','profile_image', 'background_image']
 
 
 def clean(self):
