@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-pmk*a$n1_+n2oe15&(n*i)50-4(90p(xo&2gr54^%-yf+atm*#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS", "localhost")]
+ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOSTS", "localhost"),"127.0.0.1"]
 
 
 # Application definition

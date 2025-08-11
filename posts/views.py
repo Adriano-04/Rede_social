@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
-from .models import Post
+from .models import Post, Comment
 
 # Create your views here.
 def create_post(request):
@@ -34,3 +34,26 @@ def like_post(request, post_id):
         'liked': liked,
         'likes_count': post.likes.count()
     })
+
+def post_comments(request, post_id):
+    post = Post.objects.get(id=post_id)
+
+    comments = post.comments.select_related('user').values(
+        'user__name',
+        'text',
+        'created'
+    )
+
+    return JsonResponse(list(comments), safe=False)
+
+def add_comment(request, post_id):
+    if request.method == 'POST':
+        post = get_object_or_404(Post, id=post_id)
+        text = request.POST.get('text')
+
+        Comment.objects.create(
+            post=post,
+            user=request.user,
+            text=text
+        )
+    return redirect('feed')

@@ -1,0 +1,17 @@
+<div class="modalComments modal" id="modalComments" style="display: none;">
+    <div class="content">
+        <div class="modalHeader">
+            <h4>Comentários</h4>
+            <span class="closeButton" id="closeModal">Fechar</span>
+        </div>
+        <form method="post" id="commentForm" class="commentForm">
+            {% csrf_token %}
+            <label for="" class="labelComment">Adicionar comentário</label>
+            <input type="text" placeholder="Comentário" name="text" class="inputComment" required>
+            <button class="commentButton" type="submit">Comentar</button>
+        </form>
+        <div class="commentsList">
+            <div id="commentsList"></div>
+        </div>
+    </div>
+</div>

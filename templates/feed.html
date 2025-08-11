@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/feed.css' %}">
+    <link rel="stylesheet" href="{% static 'css/comments.css' %}">
     <meta name="csrf-token" content="{{ csrf_token }}">
     <title>Feed</title>
 </head>
@@ -43,6 +44,7 @@
             </div>
             <a href=""></a>
         </header>
+
         {% for post in posts %}
         <div class="post">
             <div class="header_post">
@@ -78,11 +80,18 @@
                 Curtir (<span class="like_count">{{ post.likes.count }}</span>)
             </button>
             {% endif %}
+            <button class="button_comments comment_button" data-post-id="{{ post.id }}">
+                Comentários
+            </button>
         </div>
+
         {% empty %}
             <p>Nenhuma postagem disponivel</p>
         {% endfor %}
     </div>
+
+    {% include 'comments.html' %}
 </body>
 <script src="{% static 'js/feed.js' %}"></script>
+<script src="{% static 'js/comments.js' %}"></script>
 </html>
