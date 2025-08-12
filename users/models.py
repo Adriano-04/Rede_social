@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from cloudinary.models import CloudinaryField
 
 
 class CustomUserManager(BaseUserManager):
@@ -29,8 +30,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
 
-    profile_image = models.ImageField(upload_to='avatar/', default=default_profile)
-    background_image = models.ImageField(upload_to='background/', default=default_background)
+    profile_image = CloudinaryField('profile', default='default_avatar_iq42sm', blank=True, null=True)
+    background_image = CloudinaryField('background', default='default_background_qnntrv', blank=True, null=True)
+
     followers = models.ManyToManyField("self", symmetrical=False, related_name='following', blank=True)
     blocked = models.ManyToManyField("self", symmetrical=False, related_name='users_blocked', blank=True)
 
